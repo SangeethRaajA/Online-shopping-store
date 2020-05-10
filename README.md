@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## AF
+Pirathikaran V. = Customer V1
+
+Niroshan K. = Store_Manager
+
+Varniah K. = Admin
+
+Sangeeth Raj A. = Customer V2
+
 ## Available Scripts
 
 In the project directory, you can run:
