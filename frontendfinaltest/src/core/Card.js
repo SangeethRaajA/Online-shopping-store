@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import ShowImage from "./ShowImage";
 import moment from "moment";
 import { addItem, updateItem, removeItem } from "./cartHelpers";
+import AddComment from "../admin/AddComment";
 
 const Card = ({
     product,
@@ -128,6 +129,8 @@ const Card = ({
                 {showRemoveButton(showRemoveProductButton)}
 
                 {showCartUpdateOptions(cartUpdate)}
+                <AddComment proCommentId={product._id}/>
+
             </div>
         </div>
     );
