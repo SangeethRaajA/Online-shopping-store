@@ -2,6 +2,9 @@ import React, { Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
+import { itemTotalWL } from "./wishlistHelper";
+import { FaShoppingCart } from "react-icons/fa";
+
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -40,10 +43,21 @@ const Menu = ({ history }) => (
                     style={isActive(history, "/cart")}
                     to="/cart"
                 >
-                    Cart{" "}
+                    {/* Cart{" "} */}
+                    <FaShoppingCart/>
                     <sup>
                         <small className="cart-badge">{itemTotal()}</small>
                     </sup>
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link
+                    className="nav-link"
+                    style={isActive(history, "/wishlist")}
+                    to="/wishlist"
+                >
+                    wishlist{" "}
+                    
                 </Link>
             </li>
 

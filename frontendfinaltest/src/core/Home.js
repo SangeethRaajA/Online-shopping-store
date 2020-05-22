@@ -3,6 +3,8 @@ import Layout from "./Layout";
 import { getProducts } from "./apiCore";
 import Card from "./Card";
 import Search from "./Search";
+import HomeCard from "./HomeCard";
+
 
 const Home = () => {
     const [productsBySell, setProductsBySell] = useState([]);
@@ -41,11 +43,11 @@ const Home = () => {
             className="container-fluid"
         >
             <Search />
-            <h2 className="mb-4">New Arrivals</h2>
+            <h2 className="mb-2">New Arrivals</h2>
             <div className="row">
                 {productsByArrival.map((product, i) => (
-                    <div key={i} className="col-4 mb-3">
-                        <Card product={product} />
+                    <div key={i} className="col-3 mb-2">
+                        <HomeCard product={product} />
                     </div>
                 ))}
             </div>

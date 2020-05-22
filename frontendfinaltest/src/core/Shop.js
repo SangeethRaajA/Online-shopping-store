@@ -4,6 +4,8 @@ import Card from "./Card";
 import { getCategories, getFilteredProducts } from "./apiCore";
 import Checkbox from "./Checkbox";
 import RadioBox from "./RadioBox";
+import HomeCard from "./HomeCard";
+
 import { prices } from "./fixedPrices";
 
 const Shop = () => {
@@ -129,7 +131,7 @@ const Shop = () => {
                     <div className="row">
                         {filteredResults.map((product, i) => (
                             <div key={i} className="col-4 mb-3">
-                                <Card product={product} />
+                                <HomeCard product={product} />
                             </div>
                         ))}
                     </div>

@@ -148,22 +148,19 @@ const Card = ({
  
 
     return (
-        <div className="card">
+        <div className="card" style={{width:350,height:400 ,margin:1}} >
             <div className="card-header name text-center">{product.name}</div>
             <div className="card-body">
                 {shouldRedirectWL(redirectwl)}
                 {shouldRedirect(redirect)}
-                <ShowImage item={product} url="product" />
-                <p className="lead mt-2">
-                    {product.description.substring(0, 100)}
-                </p>
-                <p className="black-10">Price ${product.price}</p>
-                <p className="black-9">
-                    Category: {product.category && product.category.name}
-                </p>
-                <p className="black-8">
-                    Added on {moment(product.createdAt).fromNow()}
-                </p>
+                <div className="card-img-top" style={{width:100,height:150}}> 
+                <ShowImage  item={product} url="product" />
+                </div>
+               
+               
+                <div className="mt-2"> <p className="black-10 m-2">Price ${product.price}</p></div>
+               
+            
 
                 {showStock(product.quantity)}
                 <br />
