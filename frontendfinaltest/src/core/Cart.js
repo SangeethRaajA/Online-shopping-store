@@ -4,8 +4,8 @@ import Layout from "./Layout";
 import { getCart } from "./cartHelpers";
 import Card from "./Card";
 import CartCard from "./CartCard";
-
 import Checkout from "./Checkout";
+import Body from "./Body";
 
 const Cart = () => {
     const [items, setItems] = useState([]);
@@ -46,6 +46,9 @@ const Cart = () => {
             description="Manage your cart items. Add remove checkout or continue shopping."
             className="container-fluid"
         >
+             <div className="mb-3 m-1">
+        <Body/>
+        </div>
             <div className="row">
                 <div className="col-6">
                     {items.length > 0 ? showItems(items) : noItemsMessage()}

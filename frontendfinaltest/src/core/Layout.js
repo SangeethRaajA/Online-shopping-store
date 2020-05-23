@@ -14,12 +14,12 @@ const Layout = ({
 }) => (
     <div>
         <Menu />
-        <div className="mb-3 m-1">
-        <Body/>
-        </div>
+       
         
         <div className={className}>{children}</div>
+        <div className="m-2">
         <Footer/>
+        </div>
     </div>
 );
 

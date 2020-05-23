@@ -162,9 +162,9 @@ const Card = ({
                 {shouldRedirectWL(redirectwl)}
                 {shouldRedirect(redirect)}
                 <ShowImage item={product} url="product" />
-                <p className="lead mt-2">
+                {/* <p className="lead mt-2">
                     {product.description.substring(0, 100)}
-                </p>
+                </p> */}
 
                 <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none' }} className="black-10">Rs.{product.price}</p>
                
@@ -175,12 +175,12 @@ const Card = ({
                 <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className="black-10">Price with Discount: Rs.{product.discountprice}</p>
                 </div>
 
-                <p className="black-9">
+                {/* <p className="black-9">
                     Category: {product.category && product.category.name}
                 </p>
                 <p className="black-8">
                     Added on {moment(product.createdAt).fromNow()}
-                </p>
+                </p> */}
 
                 {showStock(product.quantity)}
                 <br />

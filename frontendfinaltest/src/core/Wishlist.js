@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import { getWishList } from "./wishlistHelper";
 import Card from "./Card";
 import HomeCard from "./HomeCard";
+import Body from "./Body";
 
 
 const Wishlist = () => {
@@ -55,7 +56,9 @@ const Wishlist = () => {
             description="Manage your wishList items. Add remove checkout or continue shopping."
             className="container"
         >
-            
+             <div className="mb-3 m-1">
+        <Body/>
+        </div>
                 <div className="col-sm-12 ">
                 <div className="row m-10">
             

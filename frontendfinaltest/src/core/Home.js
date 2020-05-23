@@ -4,6 +4,8 @@ import { getProducts } from "./apiCore";
 import Card from "./Card";
 import Search from "./Search";
 import HomeCard from "./HomeCard";
+import Body from "./Body";
+
 
 
 const Home = () => {
@@ -37,11 +39,15 @@ const Home = () => {
     }, []);
 
     return (
+        
         <Layout
             title="Home Page"
             description="Node React E-commerce App"
             className="container-fluid"
         >
+             <div className="mb-3 m-1">
+        <Body/>
+        </div>
             <Search  />
             <div className="col-sm-12">
             <h2 className="bg-primary text-center text-white">New Arrivals</h2>
@@ -54,14 +60,16 @@ const Home = () => {
             </div>
             </div>
 
-            {/* <h2 className="mb-4">Best Sellers</h2>
+            <div className="col-sm-12">
+            <h2 className="bg-primary text-center text-white">Best Sellers</h2>
             <div className="row">
                 {productsBySell.map((product, i) => (
-                    <div key={i} className="col-4 mb-3">
-                        <Card product={product} />
+                    <div key={i} className="mb-3 m-2">
+                        <HomeCard product={product} />
                     </div>
                 ))}
-            </div> */}
+            </div>
+            </div>
         </Layout>
     );
 };
