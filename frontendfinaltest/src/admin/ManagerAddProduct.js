@@ -19,7 +19,8 @@ const ManagerAddProduct = () => {
         createdProduct: "",
         redirectToProfile: false,
         formData: "",
-        discount : 0
+        discount : 0,
+        discountprice:0
     });
 
     const { user, token } = isAuthenticated();

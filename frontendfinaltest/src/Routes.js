@@ -16,6 +16,7 @@ import AddProductManager from "./admin/AddProductManager";
 import AddProduct from "./admin/AddProduct";
 import AddDiscount from "./admin/AddDiscount"
 import ProductManagerDashbaord from "./user/ProductManagerDashboard";
+import Edit from "./admin/Edit"
 
 import Shop from "./core/Shop";
 import Product from "./core/Product";
@@ -68,6 +69,11 @@ const Routes = () => {
                     path="/create/manager/discount"
                     exact
                     component={AddDiscount}
+                />
+                <ProductManagerRoute
+                    path="/edit/:id"
+                    exact
+                    component={Edit}
                 />
                 <Route path="/product/:productId" exact component={Product} />
                 <Route path="/cart" exact component={Cart} />

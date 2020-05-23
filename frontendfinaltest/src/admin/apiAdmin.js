@@ -55,18 +55,45 @@ export const getProducts = () => {
         .catch(err => console.log(err));
 };
 
-export const updateDiscount = (product)=>{
-    
+export const getProductsWithID = (productId) => {
+    return fetch(`${API}/product/edit/${productId}`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
 
-    const formdata = new FormData;
-    formdata.set('product',product);
-    console.log(formdata);
-    return fetch(`${API}/products/updateDiscount`, {
+export const getCategoryWithID = (categoryId) => {
+    return fetch(`${API}/category/edit/${categoryId}`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
+export const updateDiscount = (id,name,description,price,category,quantity,sold,shipping,discount,discountprice)=>{
+     
+    const form= new FormData;
+    form.append('name',name);
+    form.append('description',description);
+    form.append('price',price);
+    form.append('category',category);
+    form.append('quantity',quantity);
+    form.append('sold',sold);
+    form.append('shipping',shipping);
+    form.append('discount',discount);
+    form.append('discountprice',discountprice);
+
+    return fetch(`${API}/products/updateDiscount/${id}`, {
         method: "POST",
         headers:{
             Accept: "application/json"
         },
-        body:formdata
+        body:form
     })
         .then(response => {
             return response.json();
@@ -74,3 +101,19 @@ export const updateDiscount = (product)=>{
         .catch(err => console.log(err));
 
 }
+
+export const deleteProduct=(userId,token,product)=>{
+    return fetch(`${API}/product/${product._id}/${userId}`,{
+        method:"DELETE",
+        headers:{
+            Accept:"application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body:product
+    })
+        .then(response=>{
+            return response.json();
+        })
+        .catch(err=>console.log(err));
+};
+
