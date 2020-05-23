@@ -1,6 +1,10 @@
 import React from "react";
 import Menu from "./Menu";
 import "../styles.css";
+import Footer from "./Footer";
+import Body from "./Body";
+
+
 
 const Layout = ({
     title = "Title",
@@ -10,11 +14,12 @@ const Layout = ({
 }) => (
     <div>
         <Menu />
-        <div className="jumbotron">
-            <h2>{title}</h2>
-            <p className="lead">{description}</p>
+        <div className="mb-3 m-1">
+        <Body/>
         </div>
+        
         <div className={className}>{children}</div>
+        <Footer/>
     </div>
 );
 

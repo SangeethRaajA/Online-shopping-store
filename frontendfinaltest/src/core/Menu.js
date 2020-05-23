@@ -4,6 +4,8 @@ import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
 import { itemTotalWL } from "./wishlistHelper";
 import { FaShoppingCart } from "react-icons/fa";
+import Search from "./Search";
+
 
 
 const isActive = (history, path) => {
@@ -16,7 +18,7 @@ const isActive = (history, path) => {
 
 const Menu = ({ history }) => (
     <div>
-        <ul className="nav nav-tabs bg-primary">
+        <ul className="nav  navbar-fixed-top  bg-dark ">
             <li className="nav-item">
                 <Link
                     className="nav-link"
@@ -135,7 +137,9 @@ const Menu = ({ history }) => (
                         Signout
                     </span>
                 </li>
+               
             )}
+             
         </ul>
     </div>
 );

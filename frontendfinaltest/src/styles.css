@@ -2,11 +2,16 @@
  * border radius
  */
 
+
+.nav{
+    border-bottom: 4px solid rgb(43, 255, 89);
+}
 .btn,
 .jumbotron,
 .nav :hover {
     border-radius: 0px;
 }
+
 
 /* cart badge */
 
