@@ -7,6 +7,7 @@ import RadioBox from "./RadioBox";
 import HomeCard from "./HomeCard";
 
 import { prices } from "./fixedPrices";
+import Body from "./Body";
 
 const Shop = () => {
     const [myFilters, setMyFilters] = useState({
@@ -103,6 +104,9 @@ const Shop = () => {
             description="Search and find books of your choice"
             className="container-fluid"
         >
+             <div className="mb-3 m-1">
+        <Body/>
+        </div>
             <div className="row">
                 <div className="col-3">
                     <h4>Filter by categories</h4>
@@ -115,15 +119,7 @@ const Shop = () => {
                         />
                     </ul>
 
-                    <h4>Filter by price range</h4>
-                    <div>
-                        <RadioBox
-                            prices={prices}
-                            handleFilters={filters =>
-                                handleFilters(filters, "price")
-                            }
-                        />
-                    </div>
+                
                 </div>
 
                 <div className="col-9">

@@ -107,6 +107,13 @@ const Card = ({
             )
         );
     };
+    const isDiscountAvailable=()=>{
+        if(product.discount==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     const showStock = quantity => {
         return quantity > 0 ? (
@@ -131,7 +138,7 @@ const Card = ({
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text">
-                                Adjust Quantity
+                                Quantity
                             </span>
                         </div>
                         <input
@@ -148,7 +155,7 @@ const Card = ({
  
 
     return (
-        <div className="card" style={{width:350,height:500 ,marginBottom:2}} >
+        <div className="card m-2" style={{width:400,height:550 ,marginBottom:2}} >
             <div className="card-header border-danger name text-center" style={{backgroundColor:"#fff",color:"#000"}}>{product.name}</div>
             <div className="card-body">
                 {shouldRedirectWL(redirectwl)}
@@ -157,9 +164,14 @@ const Card = ({
                 <ShowImage  item={product} url="product" />
                 </div>
               
-                <div className="mt-2"> <p className="black-10 m-2">Price Rs.{product.price}</p></div>
+                <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none' }} className="black-10">Rs.{product.price}</p>
                
-               
+               <div>
+               <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'green'}} className="black-10">Discount:{product.discount}%</p>
+               </div>
+                <div>
+                <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className="black-10">Price with Discount: Rs.{product.discountprice}</p>
+                </div>
 
                 {showStock(product.quantity)}
                 <br />
@@ -169,11 +181,11 @@ const Card = ({
                 {showAddToCart(showAddToCartButton)}
                 {showAddToWishList(showAddToWishListButton)}</div>
                
-
                 {showRemoveButton(showRemoveProductButton)}
+                {showCartUpdateOptions(cartUpdate)}
                 {wishListshowRemoveButton(wishlistshowRemoveProductButton)}
 
-                {showCartUpdateOptions(cartUpdate)}
+                
             
         </div>
     );

@@ -1,7 +1,9 @@
 /**
  * border radius
  */
-
+body{
+    background-color: #f4f4f4;
+}
 
 .nav{
     border-bottom: 4px solid rgb(43, 255, 89);

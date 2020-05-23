@@ -81,6 +81,13 @@ const Card = ({
             )
         );
     };
+    const isDiscountAvailable=()=>{
+        if(product.discount==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     const showRemoveButton = showRemoveProductButton => {
         return (
@@ -148,7 +155,7 @@ const Card = ({
  
 
     return (
-        <div className="card" style={{width:350,height:400 ,margin:1}} >
+        <div className="card" style={{width:350,height:430 ,margin:1}} >
             <div className="card-header border-danger name text-center" style={{backgroundColor:"#fff",color:"#000"}}>{product.name}</div>
             <div className="card-body">
                 {shouldRedirectWL(redirectwl)}
@@ -157,9 +164,17 @@ const Card = ({
                 <ShowImage  item={product} url="product" />
                 </div>
                
+             
+                <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none', display:"inline" ,paddingRight:"20px" }} className="black-10">Rs.{product.price}</p>
                
-                <div className="mt-2"> <p className="black-10 m-2">Price Rs.{product.price}</p></div>
+                <p style={{display:isDiscountAvailable() ? 'inline':'none' , color:'green'}} className="black-10">Discount:{product.discount}%</p>
                
+               
+
+                <div>
+                <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className="black-10 mt-2">Price with Discount: Rs.{product.discountprice}</p>
+                </div>
+
             
 
                 {showStock(product.quantity)}
