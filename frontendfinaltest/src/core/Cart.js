@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Layout from "./Layout";
 import { getCart } from "./cartHelpers";
 import Card from "./Card";
+import CartCard from "./CartCard";
+
 import Checkout from "./Checkout";
 
 const Cart = () => {
@@ -14,11 +16,13 @@ const Cart = () => {
 
     const showItems = items => {
         return (
-            <div>
+            <div >
                 <h2>Your cart has {`${items.length}`} items</h2>
                 <hr />
+                
                 {items.map((product, i) => (
-                    <Card
+                        
+                    <CartCard
                         key={i}
                         product={product}
                         showAddToCartButton={false}

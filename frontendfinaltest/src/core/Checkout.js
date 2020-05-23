@@ -24,7 +24,7 @@ const Checkout = ({ products }) => {
 
     return (
         <div>
-            <h2>Total: ${getTotal()}</h2>
+            <h2>Total: Rs.{getTotal()}</h2>
 
             {showCheckout()}
         </div>

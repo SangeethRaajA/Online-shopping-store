@@ -102,6 +102,7 @@ export const updateDiscount = (id,name,description,price,category,quantity,sold,
 
 }
 
+
 export const deleteProduct=(userId,token,product)=>{
     return fetch(`${API}/product/${product._id}/${userId}`,{
         method:"DELETE",
@@ -116,4 +117,5 @@ export const deleteProduct=(userId,token,product)=>{
         })
         .catch(err=>console.log(err));
 };
+
 

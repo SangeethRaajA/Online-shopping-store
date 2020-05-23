@@ -21,6 +21,9 @@ import Edit from "./admin/Edit"
 import Shop from "./core/Shop";
 import Product from "./core/Product";
 import Cart from "./core/Cart";
+import Wishlist from "./core/Wishlist";
+
+
 
 const Routes = () => {
     return (
@@ -76,7 +79,9 @@ const Routes = () => {
                     component={Edit}
                 />
                 <Route path="/product/:productId" exact component={Product} />
-                <Route path="/cart" exact component={Cart} />
+                <Route path="/cart" exact component={Cart} />                
+                <Route path="/wishlist" exact component={Wishlist} />
+
             </Switch>
         </BrowserRouter>
     );

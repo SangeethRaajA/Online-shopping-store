@@ -49,14 +49,6 @@ const Card = ({
         }
     };
 
-    const isDiscountAvailable=()=>{
-        if(product.discount==0){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
     const shouldRedirect = redirect => {
         if (redirect) {
             return <Redirect to="/cart" />;
@@ -68,7 +60,7 @@ const Card = ({
             showAddToWishListButton && (
                 <button 
                     onClick={addToWishList}
-                    className="btn btn btn-outline-success m-2 "
+                    className="btn  btn-outline-success m-2 "
                 >
                  wishlist
                     <AiOutlineHeart/>
@@ -156,31 +148,18 @@ const Card = ({
  
 
     return (
-        <div className="card">
-            <div className="card-header border-danger name text-center"   style={{backgroundColor:"#fff",color:"#000"}}>{product.name}</div>
+        <div className="card" style={{width:350,height:500 ,marginBottom:2}} >
+            <div className="card-header border-danger name text-center" style={{backgroundColor:"#fff",color:"#000"}}>{product.name}</div>
             <div className="card-body">
                 {shouldRedirectWL(redirectwl)}
                 {shouldRedirect(redirect)}
-                <ShowImage item={product} url="product" />
-                <p className="lead mt-2">
-                    {product.description.substring(0, 100)}
-                </p>
-
-                <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none' }} className="black-10">Rs.{product.price}</p>
-               
-               <div>
-               <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'green'}} className="black-10">Discount:{product.discount}%</p>
-               </div>
-                <div>
-                <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className="black-10">Price with Discount: Rs.{product.discountprice}</p>
+                <div className="card-img-top" style={{width:100,height:150}}> 
+                <ShowImage  item={product} url="product" />
                 </div>
-
-                <p className="black-9">
-                    Category: {product.category && product.category.name}
-                </p>
-                <p className="black-8">
-                    Added on {moment(product.createdAt).fromNow()}
-                </p>
+              
+                <div className="mt-2"> <p className="black-10 m-2">Price Rs.{product.price}</p></div>
+               
+               
 
                 {showStock(product.quantity)}
                 <br />
@@ -188,14 +167,14 @@ const Card = ({
                 {showViewButton(showViewProductButton)}
 
                 {showAddToCart(showAddToCartButton)}
-               <div> {showAddToWishList(showAddToWishListButton)}</div>
+                {showAddToWishList(showAddToWishListButton)}</div>
                
 
                 {showRemoveButton(showRemoveProductButton)}
                 {wishListshowRemoveButton(wishlistshowRemoveProductButton)}
 
                 {showCartUpdateOptions(cartUpdate)}
-            </div>
+            
         </div>
     );
 };
