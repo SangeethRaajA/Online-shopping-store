@@ -149,7 +149,7 @@ const Card = ({
 
     return (
         <div className="card" style={{width:350,height:500 ,marginBottom:2}} >
-            <div className="card-header name text-center ">{product.name}</div>
+            <div className="card-header border-danger name text-center" style={{backgroundColor:"#fff",color:"#000"}}>{product.name}</div>
             <div className="card-body">
                 {shouldRedirectWL(redirectwl)}
                 {shouldRedirect(redirect)}
@@ -157,7 +157,7 @@ const Card = ({
                 <ShowImage  item={product} url="product" />
                 </div>
               
-                <div className="mt-2"> <p className="black-10 m-2">Price ${product.price}</p></div>
+                <div className="mt-2"> <p className="black-10 m-2">Price Rs.{product.price}</p></div>
                
                
 

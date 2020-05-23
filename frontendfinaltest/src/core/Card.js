@@ -149,7 +149,7 @@ const Card = ({
 
     return (
         <div className="card">
-            <div className="card-header name text-center">{product.name}</div>
+            <div className="card-header border-danger name text-center"   style={{backgroundColor:"#fff",color:"#000"}}>{product.name}</div>
             <div className="card-body">
                 {shouldRedirectWL(redirectwl)}
                 {shouldRedirect(redirect)}
@@ -157,7 +157,7 @@ const Card = ({
                 <p className="lead mt-2">
                     {product.description.substring(0, 100)}
                 </p>
-                <p className="black-10">Price ${product.price}</p>
+                <p className="black-10">Price Rs.{product.price}</p>
                 <p className="black-9">
                     Category: {product.category && product.category.name}
                 </p>
