@@ -170,7 +170,7 @@ const Card = ({
                     {product.description.substring(0, 100)}
                 </p>
 
-                <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none' }} className="black-10">Rs.{product.price}</p>
+                <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none' }} className="">Rs.{product.price}</p>
                
                <div>
                <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'green'}} className="black-10">Discount:{product.discount}%</p>
@@ -179,10 +179,10 @@ const Card = ({
                 <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className="black-10">Price with Discount: Rs.{product.discountprice}</p>
                 </div>
 
-                <p className="black-9">
+                <p className="">
                     Category: {product.category && product.category.name}
                 </p>
-                <p className="black-8">
+                <p className="" style={{color:"red"}}>
                     Added on {moment(product.createdAt).fromNow()}
                 </p>
 
