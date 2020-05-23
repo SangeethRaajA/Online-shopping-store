@@ -5,6 +5,7 @@ import Menu from '../core/Menu';
 import { isAuthenticated } from "../auth";
 import {deleteProduct} from "../admin/apiAdmin";
 import {Button} from 'react-bootstrap'
+import Footer from '../core/Footer';
 
 
 const { user, token } = isAuthenticated();
@@ -87,7 +88,7 @@ export default class AddDiscount extends Component{
             <div style={{height:'100vh'}}>
                 <Menu/>
                 <h3 style={{padding:'20px 20px 30px'}}>Product Details</h3>
-                <table className="table">
+                <table className="table" style={{marginTop:"30px",marginBottom:"145px"}}>
                     <thead className="thead-light">
                         <tr>
                             <th>Product Category</th>
@@ -103,6 +104,7 @@ export default class AddDiscount extends Component{
                         {this.productList()}
                     </tbody>
                 </table>
+                <Footer/>
             </div>
         )
     }

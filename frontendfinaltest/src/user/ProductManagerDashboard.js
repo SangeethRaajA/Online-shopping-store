@@ -51,9 +51,11 @@ const ProductManagerDashbaord = () => {
             description={`G'day ${name}!`}
             className="container-fluid"
         >
+            <div style={{marginTop:"100px",marginBottom:"80px"}}>
             <div className="row">
                 <div className="col-3">{adminLinks()}</div>
                 <div className="col-9">{managerInfo()}</div>
+            </div> 
             </div>
         </Layout>
     );

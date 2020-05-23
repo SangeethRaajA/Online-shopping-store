@@ -14,12 +14,13 @@ const Layout = ({
 }) => (
     <div>
         <Menu />
-       
+        {/* <div className="mb-3 m-1">
+        <Body/>
+        </div> */}
         
-        <div className={className}>{children}</div>
-        <div className="m-2">
+        <div className={className} style={{marginBottom:"5%"}}>{children}</div>
+
         <Footer/>
-        </div>
     </div>
 );
 

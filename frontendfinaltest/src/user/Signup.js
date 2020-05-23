@@ -93,15 +93,20 @@ const Signup = () => {
     );
 
     return (
-        <Layout
+      <div  >
+            <Layout
             title="Signup"
             description="Signup to Node React E-commerce App"
-            className="container col-md-8 offset-md-2"
+            className="container col-md-8 offset-md-2 "
         >
+            <div style={{marginTop:"60px"}}> 
             {showSuccess()}
             {showError()}
             {signUpForm()}
+            </div>
+           
         </Layout>
+      </div>
     );
 };
 

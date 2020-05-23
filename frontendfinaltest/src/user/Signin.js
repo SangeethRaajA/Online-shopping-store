@@ -103,10 +103,13 @@ const Signin = () => {
             description="Signin to Node React E-commerce App"
             className="container col-md-8 offset-md-2"
         >
+            <div style={{marginTop:"100px",marginBottom:"125px"}}>
             {showLoading()}
             {showError()}
             {signUpForm()}
             {redirectUser()}
+            </div>
+           
         </Layout>
     );
 };

@@ -54,7 +54,7 @@ const AdminDashboard = () => {
             description={`G'day ${name}!`}
             className="container-fluid"
         >
-            <div className="row">
+            <div className="row" style={{marginTop:"100px",marginBottom:"70px"}}>
                 <div className="col-3">{adminLinks()}</div>
                 <div className="col-9">{adminInfo()}</div>
             </div>

@@ -116,9 +116,11 @@ const AddProductManager = () => {
             description="Signup to Node React E-commerce App"
             className="container col-md-8 offset-md-2"
         >
+            <div style={{marginTop:"30px"}}>
             {showSuccess()}
             {showError()}
             {signUpForm()}
+            </div>
         </Layout>
     );
 };
