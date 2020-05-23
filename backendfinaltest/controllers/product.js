@@ -18,6 +18,12 @@ exports.productById = (req, res, next, id) => {
         });
 };
 
+exports.getById=(req,res)=>{
+    Product.findById(req.params.productId)
+        .then(product=>res.json(product))
+        .catch(err=>res.status(400).json('Error'+ err));
+}
+
 exports.read = (req, res) => {
     req.product.photo = undefined;
     return res.json(req.product);
@@ -299,12 +305,40 @@ exports.listSearch = (req, res) => {
 };
 
 exports.updateDiscount =(req,res)=>{
-    const filter = {_id : req.body.id}
-    const update = {discount : req.body.discount}
 
-    let pro = Product.findByIdAndUpdate(filter,update,{
-        returnOriginal: false
+    let form = new formidable.IncomingForm();
+    form.keepExtensions = true;
+    form.parse(req, (err, fields, files) => {
+
+    const {
+        name,
+        description,
+        price,
+        category,
+        quantity,
+        sold,
+        shipping,
+        discount,
+        discountprice
+
+    } = fields;
+
+    const filter = { _id: req.params.id };
+    const update = { discount: discount,
+                     quantity:quantity,
+                    discountprice:discountprice};
+
+
+    Product.findOneAndUpdate(filter, update)
+        .then(pro=>res.json(pro+'Product Updated!'))
+        .catch(err=>res.status(400).json('Error'+ err));
     })
-    .then(()=>res.json('Successfully updated'))
-    .catch(err=>res.status(400).json('Error:'+err))
 }
+
+
+exports.deleteByID = (req,res)=>{
+    Product.findByIdAndDelete(req.params.id)
+        .then(obj=>res.json(obj+'Product deleted!'))
+        .catch(err=>res.status(400).json('Error'+ err));
+}
+

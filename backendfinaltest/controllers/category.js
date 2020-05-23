@@ -13,6 +13,12 @@ exports.categoryById = (req, res, next, id) => {
     });
 };
 
+exports.getCatById=(req,res)=>{
+    Category.findById(req.params.categoryId)
+        .then(category=>res.json(category))
+        .catch(err=>res.status(400).json('Error'+ err));
+}
+
 exports.create = (req, res) => {
     const category = new Category(req.body);
     category.save((err, data) => {
