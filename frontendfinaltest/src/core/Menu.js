@@ -2,6 +2,11 @@ import React, { Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
+import { itemTotalWL } from "./wishlistHelper";
+import { FaShoppingCart } from "react-icons/fa";
+import Search from "./Search";
+
+
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -13,7 +18,7 @@ const isActive = (history, path) => {
 
 const Menu = ({ history }) => (
     <div>
-        <ul className="nav nav-tabs bg-primary">
+        <ul className="nav  navbar-fixed-top  bg-dark ">
             <li className="nav-item">
                 <Link
                     className="nav-link"
@@ -40,10 +45,21 @@ const Menu = ({ history }) => (
                     style={isActive(history, "/cart")}
                     to="/cart"
                 >
-                    Cart{" "}
+                    {/* Cart{" "} */}
+                    <FaShoppingCart/>
                     <sup>
                         <small className="cart-badge">{itemTotal()}</small>
                     </sup>
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link
+                    className="nav-link"
+                    style={isActive(history, "/wishlist")}
+                    to="/wishlist"
+                >
+                    wishlist{" "}
+                    
                 </Link>
             </li>
 
@@ -121,7 +137,9 @@ const Menu = ({ history }) => (
                         Signout
                     </span>
                 </li>
+               
             )}
+             
         </ul>
     </div>
 );

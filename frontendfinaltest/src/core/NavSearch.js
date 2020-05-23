@@ -79,7 +79,7 @@ const Search = () => {
         <form onSubmit={searchSubmit}>
             <span className="input-group-text">
                 <div className="input-group input-group-lg">
-                    {/* <div className="input-group-prepend">
+                    <div className="input-group-prepend">
                         <select
                             className="btn mr-2"
                             onChange={handleChange("category")}
@@ -91,7 +91,7 @@ const Search = () => {
                                 </option>
                             ))}
                         </select>
-                    </div> */}
+                    </div>
 
                     <input
                         type="search"
