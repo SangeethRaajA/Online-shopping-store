@@ -42,14 +42,16 @@ const Home = () => {
             description="Node React E-commerce App"
             className="container-fluid"
         >
-            <Search />
-            <h2 className="mb-2">New Arrivals</h2>
-            <div className="row">
+            <Search  />
+            <div className="col-sm-12">
+            <h2 className="bg-primary text-center text-white">New Arrivals</h2>
+            <div className="row ">
                 {productsByArrival.map((product, i) => (
-                    <div key={i} className="col-3 mb-2">
+                    <div key={i} className=" m-2">
                         <HomeCard product={product} />
                     </div>
                 ))}
+            </div>
             </div>
 
             {/* <h2 className="mb-4">Best Sellers</h2>
