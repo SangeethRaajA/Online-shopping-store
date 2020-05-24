@@ -173,10 +173,10 @@ const Card = ({
                 <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none' }} className="">Rs.{product.price}</p>
                
                <div>
-               <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'green'}} className="black-10">Discount:{product.discount}%</p>
+               <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'green'}} className="">Discount:{product.discount}%</p>
                </div>
                 <div>
-                <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className="black-10">Price with Discount: Rs.{product.discountprice}</p>
+                <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className="">Price with Discount: Rs.{product.discountprice}</p>
                 </div>
 
                 <p className="">

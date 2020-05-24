@@ -22,6 +22,7 @@ import Shop from "./core/Shop";
 import Product from "./core/Product";
 import Cart from "./core/Cart";
 import Wishlist from "./core/Wishlist";
+import OrderMange from "./admin/OrderMange";
 
 
 
@@ -72,6 +73,11 @@ const Routes = () => {
                     path="/create/manager/discount"
                     exact
                     component={AddDiscount}
+                />
+                 <ProductManagerRoute
+                    path="/create/manager/order"
+                    exact
+                    component={OrderMange}
                 />
                 <ProductManagerRoute
                     path="/edit/:id"
