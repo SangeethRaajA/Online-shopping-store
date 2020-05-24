@@ -25,7 +25,7 @@ const AdminDashboard = () => {
                     </li> */}
                     <li className="list-group-item">
                         <Link className="nav-link" to="/create/productmanager">
-                            Create Product Manager
+                            Create Store Manager
                         </Link>
                     </li>
                 </ul>
