@@ -5,6 +5,8 @@
   "dependencies": {
     "bootstrap": "^4.5.0",
     "moment": "^2.24.0",
+    "nodemailer": "^6.4.6",
+    "noty": "^3.2.0-beta",
     "query-string": "^6.5.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.1",
