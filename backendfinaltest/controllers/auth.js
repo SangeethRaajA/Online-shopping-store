@@ -9,8 +9,8 @@ const addMail=(email,name)=>{
     const transport = nodemailer.createTransport({
         service: 'outlook',
         auth: {
-          user: 'it18144772@my.sliit.lk',
-          pass: 'Niro0766'
+          user: process.env.EMAIL,
+          pass: process.env.PASSWORD
         }
       });
       

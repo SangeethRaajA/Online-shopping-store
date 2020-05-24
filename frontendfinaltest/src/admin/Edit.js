@@ -5,6 +5,7 @@ import {updateDiscount,getProductsWithID,getCategoryWithID} from './apiAdmin';
 import {Card} from 'react-bootstrap';
 import Menu from '../core/Menu';
 import Noty from 'noty'
+import { Link } from "react-router-dom";
 
 import '../../node_modules/noty/lib/noty.css'
 import '../../node_modules/noty/lib/themes/mint.css'
@@ -219,7 +220,11 @@ export default class Edit extends Component{
                                     </Col>
                                 </Form.Group>
                                 <Button style={{borderRadius:'6px'}} onClick={this.onSubmit} variant="success">Submit</Button>
-                                <Button style={{borderRadius:'6px', marginLeft:'20px' }} onClick={this.backtoProducts} variant="secondary">Back</Button>   
+                                <Link to="/create/manager/discount">
+                                    <Button style={{borderRadius:'6px', marginLeft:'20px' }} variant="secondary">
+                                        Back
+                                    </Button> 
+                                </Link>   
                             </Form>
                         </Card.Body>
                     </Card>
