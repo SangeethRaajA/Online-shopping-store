@@ -55,6 +55,17 @@ export const getProducts = () => {
         .catch(err => console.log(err));
 };
 
+
+export const getComments = (productID) => {
+    return fetch(`${API}/list/comments/${productID}`, {
+        method: "GET"
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
 export const getProductsWithID = (productId) => {
     return fetch(`${API}/product/edit/${productId}`, {
         method: "GET"

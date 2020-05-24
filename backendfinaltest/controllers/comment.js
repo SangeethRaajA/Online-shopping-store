@@ -63,7 +63,9 @@ exports.remove = (req, res) => {
 };
 
 exports.list = (req, res) => {
-    Comment.find().exec((err, data) => {
+    
+    
+    Comment.find({"productId":`${req.params.productId}`}).exec((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: errorHandler(err)

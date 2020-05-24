@@ -6,7 +6,7 @@ import { addItem, updateItem, removeItem } from "./cartHelpers";
 import { addItemWL, removeItemWL } from "./wishlistHelper";
 import { AiOutlineHeart } from "react-icons/ai";
 import Comment from "./Comment/comment";
-
+import CommentList from "./Comment/commentList";
 
 const Card = ({
     product,
@@ -202,6 +202,7 @@ const Card = ({
 
                 {showCartUpdateOptions(cartUpdate)}
                 <Comment proId={product._id}/>
+                <CommentList proId={product._id}/>
 
             </div>
         </div>
