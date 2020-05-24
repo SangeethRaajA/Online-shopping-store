@@ -10,7 +10,11 @@ const Checkout = ({ products }) => {
 
     const getTotal = () => {
         return products.reduce((currentValue, nextValue) => {
-            return currentValue + nextValue.count * nextValue.discountprice;
+            if(nextValue.discount==0){
+                return currentValue + nextValue.count * nextValue.price;
+            }else{
+                return currentValue + nextValue.count * nextValue.discountprice;
+            }
         }, 0);
     };    
 
