@@ -4,6 +4,10 @@ import {Form,Row,Col} from 'react-bootstrap';
 import {updateDiscount,getProductsWithID,getCategoryWithID} from './apiAdmin';
 import {Card} from 'react-bootstrap';
 import Menu from '../core/Menu';
+import Noty from 'noty'
+
+import '../../node_modules/noty/lib/noty.css'
+import '../../node_modules/noty/lib/themes/mint.css'
 
 
 
@@ -80,41 +84,68 @@ export default class Edit extends Component{
 
     }
     
+    backtoProducts=(e)=>{
+        e.preventDefault();
+
+        window.location='/create/manager/discount';
+    }
+    
     onSubmit=(e)=>{
         e.preventDefault();
 
-        const product={
-            name: this.state.name,
-            description: this.state.description,
-            price: this.state.price,
-            category: this.state.category,
-            quantity: this.state.quantity,
-            sold: this.state.sold,
-            shipping: this.state.shipping,
-            discount: this.state.discount,
-            discountprice: this.state.discountprice
-        }
+        console.log("Discount:"+this.state.discount)
+        console.log("Quantity:"+this.state.quantity)
 
-        let name= this.state.name;
-        let description= this.state.description;
-        let price= this.state.price;
-        let category= this.state.category;
-        let quantity= this.state.quantity;
-        let sold= this.state.sold;
-        let shipping= this.state.shipping;
-        let discount= this.state.discount;
-        let discountprice= this.state.discountprice;
-
-
-        // axios.post("https://mern-exercise.herokuapp.com/exercise/update/"+this.props.match.params.id,exercise)
-        //     .then(res=>console.log(res.data));
-        updateDiscount(this.props.match.params.id,name,description,price,category,quantity,sold,shipping,discount,discountprice)
-            .then(res=>{
-                console.log(res)
+        if((this.state.discount ==(null || "")) || (this.state.quantity == (null || ""))){
+            new Noty({
+                type:"error",
+                layout:"topRight",
+                text:"Quantity or Discount Cannot be empty",
+                timeout:3000
+            }).show()
+            this.setState({
+                discount:"",
+                quantity:""
             })
+        }
+        else{
+            const product={
+                name: this.state.name,
+                description: this.state.description,
+                price: this.state.price,
+                category: this.state.category,
+                quantity: this.state.quantity,
+                sold: this.state.sold,
+                shipping: this.state.shipping,
+                discount: this.state.discount,
+                discountprice: this.state.discountprice
+            }
+
+            let name= this.state.name;
+            let description= this.state.description;
+            let price= this.state.price;
+            let category= this.state.category;
+            let quantity= this.state.quantity;
+            let sold= this.state.sold;
+            let shipping= this.state.shipping;
+            let discount= this.state.discount;
+            let discountprice= this.state.discountprice;
 
 
-        window.location='/create/manager/discount';
+        
+            updateDiscount(this.props.match.params.id,name,description,price,category,quantity,sold,shipping,discount,discountprice)
+                .then(res=>{
+                    console.log(res)
+                })
+
+            new Noty({
+                type:"success",
+                layout:"topRight",
+                text:"Product Updated Successfully",
+                timeout:3000
+            }).show()
+            
+        }
     }
 
     render(){
@@ -175,7 +206,7 @@ export default class Edit extends Component{
                                     </Form.Label>
                                     <Col sm="8">
                                     <Form.Control style={{ fontWeight:'400'}} type="number" placeholder={this.state.discount} onChange={this.onChangeDiscount}/>`
-                                    <Button style={{borderRadius:'6px', margin:'8px'}} onClick={this.calcDiscountPrice} variant="primary">Check</Button>
+                                    <Button style={{borderRadius:'6px', margin:'8px'}} onClick={this.calcDiscountPrice} variant="primary">Check New Price</Button>
                                     </Col>
                                 </Form.Group>
 
@@ -187,7 +218,8 @@ export default class Edit extends Component{
                                         <Form.Control style={{color:'green', fontWeight:'400'}} plaintext readOnly defaultValue={this.state.discountprice}/>
                                     </Col>
                                 </Form.Group>
-                                <Button style={{borderRadius:'6px'}} onClick={this.onSubmit} variant="success">Submit</Button>   
+                                <Button style={{borderRadius:'6px'}} onClick={this.onSubmit} variant="success">Submit</Button>
+                                <Button style={{borderRadius:'6px', marginLeft:'20px' }} onClick={this.backtoProducts} variant="secondary">Back</Button>   
                             </Form>
                         </Card.Body>
                     </Card>

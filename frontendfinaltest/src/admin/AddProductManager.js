@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import { signup } from "../auth";
+import Noty from 'noty'
+
+import '../../node_modules/noty/lib/noty.css'
+import '../../node_modules/noty/lib/themes/mint.css'
+
+
 
 const AddProductManager = () => {
     const [values, setValues] = useState({
@@ -19,6 +25,8 @@ const AddProductManager = () => {
         setValues({ ...values, error: false, [name]: event.target.value });
     };
 
+
+
     const clickSubmit = event => {
         event.preventDefault();
         setValues({ ...values, error: false });
@@ -35,9 +43,18 @@ const AddProductManager = () => {
                     error: "",
                     success: true
                 });
+
+                new Noty({
+                    type:"success",
+                    layout:"topRight",
+                    text:"Mail Sent to Store Manager",
+                    timeout:3000
+                }).show()
             }
         });
     };
+
+    
 
     const signUpForm = () => (
         <form>
@@ -71,7 +88,7 @@ const AddProductManager = () => {
                 >
                     <option value={0}>User</option>
                     <option value={1}>Admin</option>
-                    <option value={2}>Product Manager</option>
+                    <option value={2}>Store Manager</option>
 
 
                 </select>

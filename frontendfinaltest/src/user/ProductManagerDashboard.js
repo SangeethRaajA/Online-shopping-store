@@ -21,15 +21,17 @@ const ProductManagerDashbaord = () => {
                     </li>
                     <li className="list-group-item">
                         <Link className="nav-link" to="/create/manager/discount">
-                            Add Discount
+                            Manage Products
                         </Link>
                     </li>
+
                     <li className="list-group-item">
                         <Link className="nav-link" to="/create/manager/order">
                             Manage Order
                         </Link>
                     </li>
                    
+
                 </ul>
             </div>
         );
