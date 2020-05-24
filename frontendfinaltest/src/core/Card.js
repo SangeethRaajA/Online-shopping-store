@@ -5,6 +5,8 @@ import moment from "moment";
 import { addItem, updateItem, removeItem } from "./cartHelpers";
 import { addItemWL, removeItemWL } from "./wishlistHelper";
 import { AiOutlineHeart } from "react-icons/ai";
+import Comment from "./Comment/comment";
+
 
 const Card = ({
     product,
@@ -199,6 +201,8 @@ const Card = ({
                 {wishListshowRemoveButton(wishlistshowRemoveProductButton)}
 
                 {showCartUpdateOptions(cartUpdate)}
+                <Comment proId={product._id}/>
+
             </div>
         </div>
     );

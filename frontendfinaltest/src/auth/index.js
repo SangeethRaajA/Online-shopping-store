@@ -65,3 +65,38 @@ export const isAuthenticated = () => {
         return false;
     }
 };
+
+export const createOrder = order => {
+    return fetch(`${API}/cart/order`, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(order)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
+
+export const addComment = comment => {
+    return fetch(`${API}/product/comment`, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(comment)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
