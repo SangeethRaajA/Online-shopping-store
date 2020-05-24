@@ -4,12 +4,17 @@ import { getCategories, getProducts} from "../core/apiCore";
 import Menu from '../core/Menu';
 import { isAuthenticated } from "../auth";
 import {deleteProduct} from "../admin/apiAdmin";
-import {Button} from 'react-bootstrap'
+import {Button,Alert} from 'react-bootstrap'
 import Footer from '../core/Footer';
+import Noty from 'noty'
 
+import '../../node_modules/noty/lib/noty.css'
+import '../../node_modules/noty/lib/themes/mint.css'
 
 const { user, token } = isAuthenticated();
-let deleted = false;
+
+
+
 
 const Product = props =>(
     <tr>
@@ -54,11 +59,12 @@ export default class AddDiscount extends Component{
     deleteItem=(product)=>{
         deleteProduct(user._id,token,product)
             .then(result=>{
-                console.log(result)
-                if(result.message){
-                    deleted=true
-                }
-                console.log(deleted)
+                new Noty({
+                    type:"success",
+                    layout:"topRight",
+                    text:result.message,
+                    timeout:2000
+                }).show()
             })
             
         
@@ -82,6 +88,8 @@ export default class AddDiscount extends Component{
             return <Product product={Currentproduct} deleteproduct={this.deleteItem} key={Currentproduct._id}/>
         })
     }
+
+    
 
     render(){
         return(

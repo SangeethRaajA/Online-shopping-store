@@ -2,10 +2,40 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken"); // to generate signed token
 const expressJwt = require("express-jwt"); // for authorization check
 const { errorHandler } = require("../helpers/dbErrorHandler");
+const nodemailer = require('nodemailer');
+
+
+const addMail=(email,name)=>{
+    const transport = nodemailer.createTransport({
+        service: 'outlook',
+        auth: {
+          user: 'it18144772@my.sliit.lk',
+          pass: 'Niro0766'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'it18144772@my.sliit.lk',
+        to: email,
+        subject: 'New Product Manager Role',
+        text: `Hi ${name},
+                You are added as a new Store Manager to the Clothing Store. Enjoy your Work. Thank you!
+                Regards Clothing Store Team`
+      };
+
+      transport.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+    });
+}
 
 exports.signup = (req, res) => {
     // console.log("req.body", req.body);
     const user = new User(req.body);
+    addMail(req.body.email,req.body.name);
     user.save((err, user) => {
         if (err) {
             return res.status(400).json({
