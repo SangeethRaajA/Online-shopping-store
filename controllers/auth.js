@@ -5,7 +5,7 @@ const { errorHandler } = require("../helpers/dbErrorHandler");
 const nodemailer = require('nodemailer');
 
 
-const addMail=(email,name)=>{
+const addMail=(email,name,password)=>{
     const transport = nodemailer.createTransport({
         service: 'outlook',
         auth: {
@@ -19,7 +19,9 @@ const addMail=(email,name)=>{
         to: email,
         subject: 'New Product Manager Role',
         text: `Hi ${name},
-                You are added as a new Store Manager to the Clothing Store. Enjoy your Work. Thank you!
+                You are added as a new Store Manager to the Clothing Store,
+                Your Password:${password}
+                Enjoy your Work. Thank you!
                 Regards Clothing Store Team`
       };
 
@@ -35,7 +37,7 @@ const addMail=(email,name)=>{
 exports.signup = (req, res) => {
     // console.log("req.body", req.body);
     const user = new User(req.body);
-    addMail(req.body.email,req.body.name);
+    addMail(req.body.email,req.body.name,req.body.password);
     user.save((err, user) => {
         if (err) {
             return res.status(400).json({
