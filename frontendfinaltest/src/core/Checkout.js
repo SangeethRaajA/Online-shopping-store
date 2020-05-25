@@ -65,8 +65,7 @@ const Checkout = ({ products }) => {
 
     const showCheckout = () => {
         return isAuthenticated() ? (
-            <div>{checkouform()}</div>
-            
+            <div>{checkouform()}</div>            
         ) : (
             <Link to="/signin">
                 <button className="btn btn-primary">Sign in to checkout</button>
