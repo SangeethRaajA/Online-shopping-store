@@ -57,12 +57,12 @@ export default class AddDiscount extends Component{
     }
 
     deleteItem=(product)=>{
-        deleteProduct(user._id,token,product)
+        deleteProduct(product)
             .then(result=>{
                 new Noty({
                     type:"success",
                     layout:"topRight",
-                    text:result.message,
+                    text:'Product deleted Successfully!',
                     timeout:2000
                 }).show()
             })

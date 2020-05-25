@@ -114,12 +114,12 @@ export const updateDiscount = (id,name,description,price,category,quantity,sold,
 }
 
 
-export const deleteProduct=(userId,token,product)=>{
-    return fetch(`${API}/product/${product._id}/${userId}`,{
+export const deleteProduct=(product)=>{
+    return fetch(`${API}/product/${product._id}`,{
         method:"DELETE",
         headers:{
             Accept:"application/json",
-            Authorization: `Bearer ${token}`
+            // Authorization: `Bearer ${token}`
         },
         body:product
     })
