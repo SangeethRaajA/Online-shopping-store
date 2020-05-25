@@ -3,7 +3,8 @@ import Layout from "./Layout";
 import { read, listRelated } from "./apiCore";
 import Card from "./Card";
 import HomeCard from "./HomeCard";
-
+import VisitorCard from "./VisitorCard";
+import { isAuthenticated } from "../auth";
 
 const Product = props => {
     const [product, setProduct] = useState({});
@@ -28,10 +29,20 @@ const Product = props => {
         });
     };
 
+
+
     useEffect(() => {
         const productId = props.match.params.productId;
         loadSingleProduct(productId);
     }, [props]);
+
+    const showproduct = () => {
+        return isAuthenticated() ? (
+            <Card product={product} showViewProductButton={false} />          
+        ) : (
+            <VisitorCard product={product} showViewProductButton={false} />
+        );
+    };
 
     return (
         <Layout
@@ -46,7 +57,7 @@ const Product = props => {
             <div className="row">
                 <div className="col-8">
                     {product && product.description && (
-                        <Card product={product} showViewProductButton={false} />
+                        showproduct()
                     )}
                 </div>
 

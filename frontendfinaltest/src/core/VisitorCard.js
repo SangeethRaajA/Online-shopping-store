@@ -5,9 +5,9 @@ import moment from "moment";
 import { addItem, updateItem, removeItem } from "./cartHelpers";
 import { addItemWL, removeItemWL } from "./wishlistHelper";
 import { AiOutlineHeart } from "react-icons/ai";
-import { isAuthenticated } from "../auth";
+// import CommentList from "./Comment/commentList";
 
-const Card = ({
+const VisitorCard = ({
     product,
     showViewProductButton = true,
     showAddToCartButton = true,
@@ -50,6 +50,14 @@ const Card = ({
         }
     };
 
+    const isDiscountAvailable=()=>{
+        if(product.discount==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     const shouldRedirect = redirect => {
         if (redirect) {
             return <Redirect to="/cart" />;
@@ -70,33 +78,18 @@ const Card = ({
         );
     };
 
-    const showbutton = () => {
-        return isAuthenticated() ? (
+    const showAddToCart = showAddToCartButton => {
+        return (
+            showAddToCartButton && (
                 <button
                     onClick={addToCart}
                     className="btn btn-outline-warning mt-2 mb-2"
                 >
                     Add to cart
-                </button>        
-        ) : (
-            <div></div>
-        );
-    };
-
-    const showAddToCart = showAddToCartButton => {
-        return (
-            showAddToCartButton && (
-                showbutton()
+                </button>
             )
         );
     };
-    const isDiscountAvailable=()=>{
-        if(product.discount==0){
-            return false;
-        }else{
-            return true;
-        }
-    }
 
     const showRemoveButton = showRemoveProductButton => {
         return (
@@ -164,34 +157,42 @@ const Card = ({
  
 
     return (
-        <div className="card" style={{width:350,height:430 ,margin:1}} >
-            <div className="card-header border-danger name text-center" style={{backgroundColor:"#fff",color:"#000"}}>{product.name}</div>
+        <div className="card">
+            <div className="card-header border-danger name text-center"   style={{backgroundColor:"#fff",color:"#000"}}>{product.name}</div>
             <div className="card-body">
                 {shouldRedirectWL(redirectwl)}
                 {shouldRedirect(redirect)}
-                <div className="card-img-top" style={{width:100,height:150}}> 
+                <div className="card-img-top" style={{width:250,height:350}}> 
                 <ShowImage  item={product} url="product" />
                 </div>
                
-             
-                <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none', display:"inline" ,paddingRight:"20px" }} className="">Rs.{product.price}</p>
-               
-                <p style={{display:isDiscountAvailable() ? 'inline':'none' , color:'green'}} >Discount:{product.discount}%</p>
-               
-               
+                <p className="lead mt-2">
+                    Description :   
+                    {product.description.substring(0, 100)}
+                </p>
 
+                <p style={{textDecoration:isDiscountAvailable() ? 'line-through':'none' }} className="">Rs.{product.price}</p>
+               
+               <div>
+               <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'green'}} className="">Discount:{product.discount}%</p>
+               </div>
                 <div>
-                <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className=" mt-2">Price with Discount: Rs.{product.discountprice}</p>
+                <p style={{display:isDiscountAvailable() ? 'inline-block':'none' , color:'orange'}} className="">Price with Discount: Rs.{product.discountprice}</p>
                 </div>
 
-            
+                <p className="">
+                    Category: {product.category && product.category.name}
+                </p>
+                <p className="" style={{color:"red"}}>
+                    Added on {moment(product.createdAt).fromNow()}
+                </p>
 
                 {showStock(product.quantity)}
                 <br />
 
                 {showViewButton(showViewProductButton)}
 
-                {showAddToCart(showAddToCartButton)}
+                {/* {showAddToCart(showAddToCartButton)} */}
                <div> {showAddToWishList(showAddToWishListButton)}</div>
                
 
@@ -199,9 +200,11 @@ const Card = ({
                 {wishListshowRemoveButton(wishlistshowRemoveProductButton)}
 
                 {showCartUpdateOptions(cartUpdate)}
+                {/* <CommentList proId={product._id}/> */}
+
             </div>
         </div>
     );
 };
 
-export default Card;
+export default VisitorCard;

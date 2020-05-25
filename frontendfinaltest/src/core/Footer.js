@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => (
     
     <footer className="footer bg-dark text-white sticky-bottom"><br/>
-        <div class="footer-top">
+        <div className="footer-top">
             <div className="container">
                 <div className="row">
                     {/* first column */}
@@ -29,7 +29,7 @@ const Footer = () => (
                                 <h4>Contact</h4>      
                                 <i className="fas fa-map-marker-alt"></i> No. 621 PERADENIYA ROAD,<br/> KANDY,<br/> SRI LANKA.<br/>
                                 <i className="fas fa-phone"></i> Phone: +94 7755 44651<br/>
-                                <i className="fas fa-envelope"></i> Email: <a href="info@skygymkandy.lk" class="text-white">info@fashionstore.lk</a>                
+                                <i className="fas fa-envelope"></i> Email: <a href="info@skygymkandy.lk" className="text-white">info@fashionstore.lk</a>                
                             </div>
                         </div>                        
                     </div>
