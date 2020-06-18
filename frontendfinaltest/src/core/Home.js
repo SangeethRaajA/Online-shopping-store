@@ -60,7 +60,7 @@ const Home = () => {
             </div>
             </div>
 
-            <div className="col-sm-12">
+            {/* <div className="col-sm-12">
             <h2 className="bg-primary text-center text-white">Best Sellers</h2>
             <div className="row">
                 {productsBySell.map((product, i) => (
@@ -69,7 +69,7 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-            </div>
+            </div> */}
         </Layout>
     );
 };

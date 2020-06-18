@@ -39,6 +39,7 @@ const Menu = ({ history }) => (
                 </Link>
             </li>
 
+            {isAuthenticated() && (
             <li className="nav-item">
                 <Link
                     className="nav-link"
@@ -52,6 +53,9 @@ const Menu = ({ history }) => (
                     </sup>
                 </Link>
             </li>
+            )}
+
+
             <li className="nav-item">
                 <Link
                     className="nav-link"
