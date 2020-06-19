@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getCategories, list } from "./apiCore";
 import Card from "./Card";
+import HomeCard from "./HomeCard";
+
+
 
 const Search = () => {
     const [data, setData] = useState({
@@ -68,7 +71,7 @@ const Search = () => {
                 </h2>
                 <div className="row">
                     {results.map((product, i) => (
-                        <Card key={i} product={product} />
+                        <HomeCard key={i} product={product} />
                     ))}
                 </div>
             </div>
