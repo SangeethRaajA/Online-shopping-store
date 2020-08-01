@@ -24,10 +24,7 @@ router.get("/product/:productId", read);
 router.get("/product/edit/:productId", getById);
 router.post("/product/create/:userId", requireSignin, isAuth, isAdmin, create);
 router.delete(
-    "/product/:productId/:userId",
-    requireSignin,
-    isAuth,
-    isAdmin,
+    "/product/:productId",
     remove
 );
 router.delete("/product/delete/:id",deleteByID);
